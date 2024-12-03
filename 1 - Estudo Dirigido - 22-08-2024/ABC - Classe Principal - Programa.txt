@@ -1,0 +1,102 @@
+package aplicacao;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Programa {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Material> materiais = new ArrayList<>();
+
+        // Entrada de dados
+        int n = 0;
+        while (true) {
+            try {
+                System.out.println("Digite o número de materiais:");
+                n = scanner.nextInt();
+                scanner.nextLine(); // Consome o newline após nextInt()
+                if (n > 0) break; // Garante que o número de materiais seja positivo
+                else System.out.println("Por favor, insira um número positivo.");
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida! Por favor, insira um número inteiro.");
+                scanner.nextLine(); // Limpa a entrada inválida
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Digite o nome do material " + (i + 1) + ":");
+            String nome = scanner.nextLine();
+
+            double preco = 0.0;
+            while (true) {
+                try {
+                    System.out.println("Digite o preço do material " + nome + ":");
+                    preco = scanner.nextDouble();
+                    scanner.nextLine(); // Consome o newline após nextDouble()
+                    if (preco >= 0) break; // Garante que o preço seja positivo ou zero
+                    else System.out.println("Por favor, insira um valor positivo.");
+                } catch (InputMismatchException e) {
+                    System.out.println("Entrada inválida! Por favor, insira um valor numérico para o preço.");
+                    scanner.nextLine(); // Limpa a entrada inválida
+                }
+            }
+
+            double consumoAnual = 0.0;
+            while (true) {
+                try {
+                    System.out.println("Digite o consumo anual em unidades do material " + nome + ":");
+                    consumoAnual = scanner.nextDouble();
+                    scanner.nextLine(); // Consome o newline após nextDouble()
+                    if (consumoAnual >= 0) break; // Garante que o consumo seja positivo ou zero
+                    else System.out.println("Por favor, insira um valor positivo.");
+                } catch (InputMismatchException e) {
+                    System.out.println("Entrada inválida! Por favor, insira um valor numérico para o consumo anual.");
+                    scanner.nextLine(); // Limpa a entrada inválida
+                }
+            }
+
+            double valorConsumoAnual = preco * consumoAnual;
+            materiais.add(new Material(nome, valorConsumoAnual));
+        }
+
+        // Ordenação dos materiais pelo valor de consumo anual (decrescente)
+        Collections.sort(materiais, new Comparator<Material>() {
+            @Override
+            public int compare(Material m1, Material m2) {
+                return Double.compare(m2.getValorConsumoAnual(), m1.getValorConsumoAnual());
+            }
+        });
+
+        // Cálculo do valor total de consumo anual
+        double valorTotalConsumoAnual = 0;
+        for (Material material : materiais) {
+            valorTotalConsumoAnual += material.getValorConsumoAnual();
+        }
+
+        // Cálculo dos valores acumulados, X sobre o valor do consumo anual e classificação
+        double acumulado = 0;
+        System.out.println("\nTabela Mestra:");
+        System.out.printf("%-15s %-20s %-25s %-30s %-20s\n", "Nome", "Valor Consumo Anual", "Valor Consumo Acumulado", "X sobre Valor Consumo", "Classificação");
+        for (Material material : materiais) {
+            acumulado += material.getValorConsumoAnual();
+            material.setValorConsumoAcumulado(acumulado);
+            material.setXSobreValorConsumoAnual((acumulado / valorTotalConsumoAnual) * 100);
+
+            // Classificação ABC
+            if (material.getXSobreValorConsumoAnual() <= 70) {
+                material.setClassificacao("A");
+            } else if (material.getXSobreValorConsumoAnual() <= 90) {
+                material.setClassificacao("B");
+            } else {
+                material.setClassificacao("C");
+            }
+
+            System.out.println(material);
+        }
+
+        scanner.close();
+    }
+}

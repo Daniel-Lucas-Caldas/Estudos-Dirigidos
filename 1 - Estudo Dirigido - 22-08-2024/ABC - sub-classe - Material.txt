@@ -1,0 +1,53 @@
+package aplicacao;
+
+public class Material {
+    private String nome;
+    private double valorConsumoAnual;
+    private double valorConsumoAcumulado;
+    private double xSobreValorConsumoAnual;
+    private String classificacao;
+
+    public Material(String nome, double valorConsumoAnual) {
+        this.nome = nome;
+        this.valorConsumoAnual = valorConsumoAnual;
+    }
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public double getValorConsumoAnual() {
+        return valorConsumoAnual;
+    }
+
+    public double getValorConsumoAcumulado() {
+        return valorConsumoAcumulado;
+    }
+
+    public void setValorConsumoAcumulado(double valorConsumoAcumulado) {
+        this.valorConsumoAcumulado = valorConsumoAcumulado;
+    }
+
+    public double getXSobreValorConsumoAnual() {
+        return xSobreValorConsumoAnual;
+    }
+
+    public void setXSobreValorConsumoAnual(double xSobreValorConsumoAnual) {
+        this.xSobreValorConsumoAnual = xSobreValorConsumoAnual;
+    }
+
+    public String getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s %-20.2f %-25.2f %-30.2f %-20s", 
+                nome, valorConsumoAnual, valorConsumoAcumulado, xSobreValorConsumoAnual, classificacao);
+    }
+}
