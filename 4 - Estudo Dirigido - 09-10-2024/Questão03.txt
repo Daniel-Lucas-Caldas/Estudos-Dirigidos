@@ -1,0 +1,31 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 3. Exibir alunos que passaram e reprovaram (nota >= 7)
+let notasAlunos = {
+    Pedro: 6,
+    Maria: 8,
+    João: 7,
+    Carla: 5
+};
+
+let alunosAprovados = [];
+let alunosReprovados = [];
+
+for (let aluno in notasAlunos) {
+    if (notasAlunos[aluno] >= 7) {
+        alunosAprovados.push({ nome: aluno, nota: notasAlunos[aluno] });
+    } else {
+        alunosReprovados.push({ nome: aluno, nota: notasAlunos[aluno] });
+    }
+}
+
+console.log("Alunos Aprovados:");
+alunosAprovados.forEach(aluno => {
+    console.log(`${aluno.nome} passou com nota ${aluno.nota}`);
+});
+
+console.log("\nAlunos Reprovados:");
+alunosReprovados.forEach(aluno => {
+    console.log(`${aluno.nome} reprovou com nota ${aluno.nota}`);
+});

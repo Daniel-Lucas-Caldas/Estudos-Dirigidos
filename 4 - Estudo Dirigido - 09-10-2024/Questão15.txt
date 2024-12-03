@@ -1,0 +1,24 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 15. Filtrar produtos com preço acima de R$ 100
+let produtosPreco = { celular: 120, fone: 80, monitor: 150 };
+let produtosCaros = {};
+
+// Filtra produtos com preço acima de R$ 100
+for (const [produto, preco] of Object.entries(produtosPreco)) {
+    // Verifica se o preço é válido
+    if (typeof preco === 'number' && preco > 100) {
+        produtosCaros[produto] = preco; // Adiciona produtos caros
+    }
+}
+
+// Exibe os produtos caros de forma formatada
+if (Object.keys(produtosCaros).length > 0) {
+    console.log("💰 Produtos caros:");
+    for (const [produto, preco] of Object.entries(produtosCaros)) {
+        console.log(`- ${produto}: R$ ${preco.toFixed(2)}`);
+    }
+} else {
+    console.log("🛑 Nenhum produto caro encontrado.");
+}

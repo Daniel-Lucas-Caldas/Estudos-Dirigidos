@@ -1,0 +1,31 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 7. Calcular a média salarial
+let funcionarios = {
+    "Ana": 3000,
+    "Bruno": 2500,
+    "Carla": 4000,
+    "Diana": 3200,
+    "Eduardo": 2800
+};
+
+// Variáveis para calcular total e média salarial
+let totalSalarios = 0;
+let quantidadeFuncionarios = 0;
+
+// Exibir salários e calcular total e média
+console.log("📋 Lista de Funcionários e seus Salários:");
+for (let funcionario in funcionarios) {
+    console.log(`- ${funcionario}: R$ ${funcionarios[funcionario].toFixed(2)}`); // Exibe o salário de cada funcionário
+    totalSalarios += funcionarios[funcionario]; // Soma dos salários
+    quantidadeFuncionarios++; // Contagem de funcionários
+}
+
+// Calcular média salarial
+let mediaSalarial = totalSalarios / quantidadeFuncionarios;
+
+// Exibir resultados finais
+console.log("\n💰 Total da Soma dos Salários: R$ " + totalSalarios.toFixed(2));
+
+console.log("📊 Média Salarial: R$ " + mediaSalarial.toFixed(2));

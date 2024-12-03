@@ -1,0 +1,35 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 5. Criar objeto com produtos e quantidades em estoque
+let estoque = {
+    "Arroz": 20,
+    "Feijão": 15,
+    "Macarrão": 30,
+    "Açúcar": 10
+};
+
+// Função para vender um produto
+function venderProduto(produto) {
+    if (estoque[produto] > 0) {
+        estoque[produto]--;  // Diminui a quantidade em 1
+        console.log(`✅ ${produto} vendido! Quantidade restante: ${estoque[produto]}`);
+    } else {
+        console.log(`❌ Desculpe, ${produto} está fora de estoque!`);
+    }
+}
+
+// Simulando vendas
+let produtosVendidos = ["Arroz", "Feijão", "Açúcar", "Arroz", "Macarrão", "Arroz", "Açúcar", "Feijão", "Feijão"];
+
+// Laço para processar as vendas
+console.log("📦 Iniciando as vendas...\n");
+for (let produto of produtosVendidos) {
+    venderProduto(produto);
+}
+
+// Exibir estoque final
+console.log("\n📊 Estoque final:");
+for (let produto in estoque) {
+    console.log(`- ${produto}: ${estoque[produto]} unidade(s)`);
+}

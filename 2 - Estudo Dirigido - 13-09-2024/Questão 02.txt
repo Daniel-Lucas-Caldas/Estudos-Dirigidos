@@ -1,0 +1,84 @@
+<!--Estudo dirigido do dia: 13/09/2024
+Senai-Dendezeiros / Turma:88433
+Alunos: Daniel Lucas e Kauan Nascimento-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de HTML</title>
+</head>
+<body>
+
+    <h1>Exercício de HTML</h1>
+    <p>Acesse o <a href="https://www.w3schools.com/" target="_blank">W3Schools</a> para mais tutoriais sobre HTML.</p>
+    <p><a href="#formulario">Ir para o Formulário</a></p>
+
+    <h2>Tabela de Horários</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Atividade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Segunda</td>
+                <td>08:00 - 12:00</td>
+                <td>Aulas</td>
+            </tr>
+            <tr>
+                <td>Terça</td>
+                <td>13:00 - 17:00</td>
+                <td>Estudo em grupo</td>
+            </tr>
+            <tr>
+                <td>Quarta</td>
+                <td>08:00 - 12:00</td>
+                <td>Aulas</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Imagem de Exemplo</h2>
+    <img src="C:\Users\aluno.den\Downloads\images.png" alt="Exemplo de Imagem">
+
+    <h2>Lista de Definição: Termos de Programação</h2>
+    <dl>
+        <dt>HTML</dt>
+        <dd>Linguagem de Marcação para construção de páginas web.</dd>
+        <dt>CSS</dt>
+        <dd>Folhas de estilo usadas para estilizar páginas HTML.</dd>
+        <dt>JavaScript</dt>
+        <dd>Linguagem de programação usada para adicionar interatividade às páginas web.</dd>
+    </dl>
+
+    <h2 id="formulario">Formulário de Cadastro</h2>
+    <form action="#" method="post">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha"><br><br>
+
+        <label for="genero">Gênero:</label><br>
+        <select id="genero" name="genero">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+        </select><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p><a href="#topo">Voltar ao topo</a></p>
+
+</body>
+</html>

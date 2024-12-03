@@ -1,0 +1,30 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+    <input type="number" id="inputNumero" placeholder="Insira o número">
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+    <p id="contagem"></p>
+
+    <script>
+        function iniciarContagem() {
+            let numero = parseInt(document.getElementById("inputNumero").value);
+            let contagem = document.getElementById("contagem");
+
+            let intervalo = setInterval(function() {
+                contagem.innerHTML = numero;
+                if (numero === 0) {
+                    clearInterval(intervalo);
+                    contagem.innerHTML = "Contagem finalizada!";
+                }
+                numero--;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

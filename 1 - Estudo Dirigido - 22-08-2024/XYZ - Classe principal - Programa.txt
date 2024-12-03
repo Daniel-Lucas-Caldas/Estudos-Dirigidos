@@ -1,0 +1,117 @@
+package xyz;
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import java.util.Scanner;
+
+
+public class programa {
+
+
+	public static void main(String[] args) {
+
+	       Scanner scanner = new Scanner(System.in);
+
+
+	        // Pergunta a quantidade de materiais
+
+	        System.out.print("Digite a quantidade de materiais: ");
+
+	        int quantidadeMateriais = scanner.nextInt();
+
+	        scanner.nextLine(); // Limpa o buffer do scanner
+
+
+	        // Lista para armazenar os materiais
+
+	        List<Material> materiais = new ArrayList<>();
+
+
+	        // Processa cada material
+
+	        for (int i = 1; i <= quantidadeMateriais; i++) {
+
+	            System.out.println("\nMaterial " + i);
+
+
+	            // Entrada de dados para cada material
+
+	            System.out.print("Digite o nome do material: ");
+
+	            String nomeMaterial = scanner.nextLine();
+
+
+	            System.out.print("O material é imprescindível para o equipamento? (sim/nao): ");
+
+	3            String respostaImprescindivel = scanner.nextLine().trim().toLowerCase();
+
+
+	            System.out.print("O equipamento é de linha de frente? (sim/nao): ");
+
+	            String respostaLinhaFrente = scanner.nextLine().trim().toLowerCase();
+
+
+	            System.out.print("Existe similar na empresa? (sim/nao): ");
+
+	            String respostaSimilar = scanner.nextLine().trim().toLowerCase();
+
+
+	            // Classificação do material
+
+	            String classificacao = classificarMaterial(respostaImprescindivel, respostaLinhaFrente, respostaSimilar);
+
+
+	            // Armazena o material e sua classificação
+
+	            materiais.add(new Material(nomeMaterial, classificacao));
+
+	        }
+
+
+	        // Exibe a tabela de resultados
+
+	        System.out.println("\nTabela de Classificação de Materiais:");
+
+	        System.out.printf("%-20s | %-40s%n", "Nome do Material", "Classificação");
+
+	        System.out.println("---------------------------------------------");
+
+
+	        for (Material material : materiais) {
+
+	            System.out.printf("%-20s | %-40s%n", material.getNome(), material.getClassificacao());
+
+	        }
+
+	    }
+
+
+	    private static String classificarMaterial(String imprescindivel, String linhaFrente, String similar) {
+
+	        // Debugging output
+
+	        System.out.println("Debugging - imprescindível: " + imprescindivel + ", linha de frente: " + linhaFrente + ", similar: " + similar);
+
+
+	        if (imprescindivel.equals("sim") && linhaFrente.equals("sim") && similar.equals("nao")) {
+
+	            return "Z - Importância vital, sem similar existente.";
+
+	        } else if (imprescindivel.equals("sim") || linhaFrente.equals("sim")) {
+
+	            return "Y - Importância mediana, com possibilidade de similar.";
+
+	        } else {
+
+	            return "X - Sem importância, com similar existente.";
+
+	        }
+
+	    }
+
+	}
+
+

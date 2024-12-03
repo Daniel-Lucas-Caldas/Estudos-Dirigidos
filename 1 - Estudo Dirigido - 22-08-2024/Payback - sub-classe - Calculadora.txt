@@ -1,0 +1,58 @@
+package aplicacao;
+
+import java.util.Scanner;
+
+class Calculadora {
+    private double investimento;
+    private int meses;
+    private double[] lucrosMensais;
+
+    // Método para registrar o investimento e o número de meses
+    public void registrarInvestimento(Scanner scanner) {
+        System.out.print("Digite o valor do investimento: ");
+        investimento = scanner.nextDouble();
+        System.out.print("Digite a quantidade de meses necessários para recuperar o investimento: ");
+        meses = scanner.nextInt();
+        lucrosMensais = new double[meses];
+    }
+
+    // Método para registrar os lucros de cada mês
+    public void registrarLucros(Scanner scanner) {
+        for (int i = 0; i < meses; i++) {
+            System.out.print("Digite o lucro do mês " + (i + 1) + ": ");
+            lucrosMensais[i] = scanner.nextDouble();
+        }
+    }
+
+    // Método para calcular o tempo de retorno do investimento
+    public void calcularPayback() {
+        double totalRecuperado = 0;
+        int mesRecuperado = -1;
+
+        for (int i = 0; i < meses; i++) {
+            totalRecuperado += lucrosMensais[i];
+            if (totalRecuperado >= investimento && mesRecuperado == -1) {
+                mesRecuperado = i + 1;
+            }
+        }
+        
+        System.out.println();
+
+        System.out.println("=== Relatório de Payback ===");
+        if (mesRecuperado != -1) {
+            System.out.println("O investimento será recuperado no mês: " + mesRecuperado);
+        } else {
+            System.out.println("O investimento não foi recuperado nos " + meses + " meses.");
+        }
+        System.out.println("Total recuperado após " + meses + " meses: " + totalRecuperado);
+    }
+
+    // Método para calcular a diferença do total recuperado com o investimento
+    public double calcularDiferenca() {
+        double totalRecuperado = 0;
+        for (double lucro : lucrosMensais) {
+            totalRecuperado += lucro;
+        }
+        return totalRecuperado - investimento;
+    }
+}

@@ -1,0 +1,21 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Nome</title>
+</head>
+<body>
+    <p id="nome">Nome: </p>
+    <input type="text" id="inputNome" placeholder="Digite o nome">
+    <button onclick="alterarNome()">Alterar Nome</button>
+
+    <script>
+        function alterarNome() {
+            let nome = document.getElementById("inputNome").value;
+            document.getElementById("nome").innerHTML = "Nome: " + nome;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+package aplicacao;
+
+import java.util.Scanner;
+
+public class Programa {
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        Calculadora paybackCalculator = new Calculadora();
+
+	        // Registrar o investimento e os meses necessários para recuperar
+	        paybackCalculator.registrarInvestimento(scanner);
+
+	        // Registrar os lucros de cada mês
+	        paybackCalculator.registrarLucros(scanner);
+
+	        // Calcular o tempo de retorno do investimento
+	        paybackCalculator.calcularPayback();
+
+	        // Exibir a diferença entre o total recuperado e o investimento
+	        double diferenca = paybackCalculator.calcularDiferenca();
+	        System.out.println("Diferença entre o total recuperado e o investimento: " + diferenca);
+
+	        scanner.close();
+	    }
+	}

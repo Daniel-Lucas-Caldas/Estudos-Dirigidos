@@ -1,0 +1,95 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Completo com HTML e JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        #colorButton {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo Completo com HTML e JavaScript</h1>
+    
+    <h2>Links</h2>
+    <p>Acesse o <a href="https://www.google.com" target="_blank">Google</a> para realizar uma pesquisa.</p>
+    <p>Confira mais informações no <a href="https://pt.wikipedia.org" target="_blank">Wikipedia</a>.</p>
+    
+    <h2>Lista de Tópicos</h2>
+    <ul>
+        <li>HTML é uma linguagem de marcação</li>
+        <li>JavaScript adiciona interatividade às páginas web</li>
+        <li>CSS é usado para estilizar as páginas web</li>
+    </ul>
+
+    <h2>Lista de Tarefas</h2>
+    <ol>
+        <li>Aprender HTML</li>
+        <li>Estudar JavaScript</li>
+        <li>Praticar projetos com HTML e JS</li>
+    </ol>
+    
+    <h2>Tabela de Produtos</h2>
+    <button id="colorButton" onclick="changeTableColor()">Alterar Cor da Tabela</button>
+    <table id="productTable">
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </tr>
+        <tr>
+            <td>Produto A</td>
+            <td>R$ 100,00</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Produto B</td>
+            <td>R$ 50,00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Produto C</td>
+            <td>R$ 200,00</td>
+            <td>5</td>
+        </tr>
+    </table>
+    
+    <h2>Formulário de Contato</h2>
+    <form>
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="comment">Comentário:</label><br>
+        <textarea id="comment" name="comment"></textarea><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function changeTableColor() {
+            const table = document.getElementById('productTable');
+            table.style.backgroundColor = table.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
+        }
+    </script>
+</body>
+</html>

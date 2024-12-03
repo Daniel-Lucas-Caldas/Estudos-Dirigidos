@@ -1,0 +1,22 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Texto ao Passar o Mouse</title>
+</head>
+<body>
+    <p id="texto">Passe o mouse aqui!</p>
+
+    <script>
+        let texto = document.getElementById("texto");
+        texto.onmouseover = function() {
+            texto.innerHTML = "Você passou o mouse!";
+        }
+        texto.onmouseout = function() {
+            texto.innerHTML = "Passe o mouse aqui!";
+        }
+    </script>
+</body>
+</html>

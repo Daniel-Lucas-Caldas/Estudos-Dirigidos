@@ -1,0 +1,33 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 12. Reposição automática de estoque
+let estoqueProdutos = { caneta: 3, borracha: 10, lápis: 2 }; // Estoque inicial de produtos
+
+// Percorre cada produto no estoque
+for (let produto in estoqueProdutos) {
+    // Verifica se a quantidade em estoque é menor que 5
+    if (estoqueProdutos[produto] < 5) {
+        estoqueProdutos[produto] += 10; // Reposição de 10 unidades
+    }
+}
+
+// Função para exibir o estoque antes e depois da reposição
+function reposicaoEstoque(estoqueProdutos) {
+    // Exibir estoque antes da reposição
+    console.log("📦 Estoque antes da reposição:", estoqueProdutos);
+
+    // Reposição automática de estoque
+    for (let produto in estoqueProdutos) {
+        // Verifica se a quantidade em estoque é menor que 5
+        if (estoqueProdutos[produto] < 5) {
+            estoqueProdutos[produto] += 10; // Reposição de 10 unidades
+        }
+    }
+
+    // Exibir estoque após a reposição
+    console.log("📦 Estoque após reposição:", estoqueProdutos);
+}
+
+// Chamar a função para mostrar o estoque
+reposicaoEstoque(estoqueProdutos);

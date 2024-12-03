@@ -1,0 +1,44 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 4. Agrupar pessoas por faixa etária
+let pessoas = [
+    { nome: "Alice", idade: 18 },
+    { nome: "Bruno", idade: 25 },
+    { nome: "Carlos", idade: 42 },
+    { nome: "Diana", idade: 15 },
+    { nome: "Eduardo", idade: 37 },
+    { nome: "Fátima", idade: 50 }
+];
+
+// Etapa 1: Lista de todos os usuários e suas idades na ordem de registro
+let listaUsuarios = pessoas.map(pessoa => `${pessoa.nome} (${pessoa.idade} anos)`);
+console.log("Lista de Usuários e Idades:", listaUsuarios.join(", "));
+
+// Etapa 2: Explicar como a classificação é feita
+console.log("\nA classificação é feita com base nas regras a seguir:");
+console.log("Jovens: até 20 anos");
+console.log("Adultos: de 21 a 40 anos");
+console.log("Idosos: acima de 40 anos");
+
+// Etapa 3: Classificação dos usuários por faixa etária
+let grupos = { jovens: [], adultos: [], idosos: [] };
+
+for (let pessoa of pessoas) {
+    if (pessoa.idade <= 20) {
+        grupos.jovens.push(pessoa);
+    } else if (pessoa.idade <= 40) {
+        grupos.adultos.push(pessoa);
+    } else {
+        grupos.idosos.push(pessoa);
+    }
+}
+
+// Exibir a classificação por faixa etária
+console.log("\nClassificação por Faixa Etária:");
+
+console.log("Jovens:", grupos.jovens.map(pessoa => `${pessoa.nome} (${pessoa.idade} anos)`).join(", "));
+
+console.log("Adultos:", grupos.adultos.map(pessoa => `${pessoa.nome} (${pessoa.idade} anos)`).join(", "));
+
+console.log("Idosos:", grupos.idosos.map(pessoa => `${pessoa.nome} (${pessoa.idade} anos)`).join(", "));

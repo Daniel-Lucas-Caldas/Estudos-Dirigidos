@@ -1,0 +1,32 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validação de Formulário</title>
+</head>
+<body>
+    <form onsubmit="return validarFormulario()">
+        Nome: <input type="text" id="nome" required><br>
+        E-mail: <input type="email" id="email" required><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="erro" style="color: red;"></p>
+
+    <script>
+        function validarFormulario() {
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let erro = document.getElementById("erro");
+
+            if (nome === "" || email === "") {
+                erro.innerHTML = "Por favor, preencha todos os campos!";
+                return false;
+            }
+            erro.innerHTML = "";
+            return true;
+        }
+    </script>
+</body>
+</html>

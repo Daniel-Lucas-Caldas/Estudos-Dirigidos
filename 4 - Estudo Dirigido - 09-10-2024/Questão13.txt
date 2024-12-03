@@ -1,0 +1,33 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 13. Calcular a média de notas de cada aluno
+
+// Função para exibir notas e calcular a média de cada aluno
+function exibirNotasECalcularMedia(notasAlunosProvas) {
+    for (let aluno in notasAlunosProvas) {
+        // Exibir notas do aluno
+        console.log(`📝 Notas de ${aluno}: ${notasAlunosProvas[aluno].join(", ")}`);
+        
+        // Calcular a média
+        let somaNotas = 0;
+        for (let nota of notasAlunosProvas[aluno]) {
+            somaNotas += nota; // Soma das notas
+        }
+        let media = somaNotas / notasAlunosProvas[aluno].length; // Cálculo da média
+        
+        // Exibir a média
+        console.log(`📚 Média de ${aluno}: ${media.toFixed(2)}`);
+        console.log(""); // Linha em branco para melhor separação
+    }
+}
+
+// Objeto contendo as notas dos alunos
+let notasAlunosProvas = {
+    Ana: [8, 7, 9],
+    Bruno: [5, 6, 7],
+    Carla: [10, 8, 9]
+};
+
+// Chamar a função para exibir notas e calcular as médias
+exibirNotasECalcularMedia(notasAlunosProvas);

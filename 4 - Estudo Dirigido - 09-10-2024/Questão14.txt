@@ -1,0 +1,26 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 14. Contar produtos vendidos
+let vendas = ["caneta", "caderno", "caneta", "borracha", "caneta"];
+
+function contarVendas(arr) {
+    let contagemVendas = {};
+    for (let produto of arr) {
+        contagemVendas[produto] = (contagemVendas[produto] || 0) + 1;
+    }
+    return contagemVendas;
+}
+
+// Chamada da função
+let resultadoVendas = contarVendas(vendas);
+
+// Exibir contagem de produtos vendidos
+console.log("🛍️ Contagem de produtos vendidos:");
+for (let produto in resultadoVendas) {
+    console.log(`- ${produto}: ${resultadoVendas[produto]} unidade(s)`);
+}
+
+// Exibir resumo total de produtos vendidos
+let totalProdutos = Object.values(resultadoVendas).reduce((acc, curr) => acc + curr, 0);
+console.log(`\n📊 Total de produtos vendidos: ${totalProdutos} unidade(s)`);

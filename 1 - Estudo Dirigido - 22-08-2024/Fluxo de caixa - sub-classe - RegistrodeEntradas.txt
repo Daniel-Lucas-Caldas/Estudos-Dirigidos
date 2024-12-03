@@ -1,0 +1,91 @@
+package aplicacao;
+
+import java.util.Scanner;
+
+class RegistroDeEntradas {
+    private double[] vendasPrevistas = new double[4];
+    private double[] servicosPrevistos = new double[4];
+    private double[] outrasPrevistas = new double[4];
+    private double[] vendasRealizadas = new double[4];
+    private double[] servicosRealizados = new double[4];
+    private double[] outrasRealizadas = new double[4];
+
+    public void registrarEntradas(String tipo, Scanner scanner) {
+        System.out.println("=== Registro de Entradas " + tipo + " ===");
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Mês " + (i + 1) + ":");
+            if (tipo.equals("Previstas")) {
+                System.out.print("* Digite as entradas previstas de Vendas: ");
+                vendasPrevistas[i] = scanner.nextDouble();
+
+                System.out.print("* Digite as entradas previstas de Serviços: ");
+                servicosPrevistos[i] = scanner.nextDouble();
+                
+                System.out.print("* Digite as outras entradas previstas: ");
+                outrasPrevistas[i] = scanner.nextDouble();
+                System.out.println();
+               
+            } else if (tipo.equals("Realizadas")) {
+                System.out.print("* Digite as entradas realizadas de Vendas: ");
+                vendasRealizadas[i] = scanner.nextDouble();
+
+                System.out.print("* Digite as entradas realizadas de Serviços: ");
+                servicosRealizados[i] = scanner.nextDouble();
+                
+                System.out.print("* Digite as outras entradas realizadas: ");
+                outrasRealizadas[i] = scanner.nextDouble();
+                System.out.println();
+            }
+        }
+    }
+
+    public void exibirRelatorioEntradasRealizadas() {
+        double totalPrevisto = calcularTotalPrevisto();
+        double totalRealizado = calcularTotalRealizado();
+        double diferencaGlobal = totalRealizado - totalPrevisto;
+
+        System.out.println("=== Relatório de Entradas Realizadas ===");
+        System.out.println("Total de Entradas Previstas: " + totalPrevisto);
+        System.out.println("Total de Entradas Realizadas: " + totalRealizado);
+        System.out.println("Diferença Global: " + diferencaGlobal);
+        System.out.println();
+
+        for (int i = 0; i < 4; i++) {
+            double totalPrevistoMes = vendasPrevistas[i] + servicosPrevistos[i] + outrasPrevistas[i];
+            double totalRealizadoMes = vendasRealizadas[i] + servicosRealizados[i] + outrasRealizadas[i];
+            double diferencaMes = totalRealizadoMes - totalPrevistoMes;
+
+            System.out.println("Mês " + (i + 1) + ":");
+            System.out.println("Entradas Previstas: " + totalPrevistoMes);
+            System.out.println("Entradas Realizadas: " + totalRealizadoMes);
+            System.out.println("Diferença: " + diferencaMes);
+            System.out.println();
+        }
+    }
+
+    public double calcularTotalPrevisto() {
+        double total = 0;
+        for (int i = 0; i < 4; i++) {
+            total += vendasPrevistas[i] + servicosPrevistos[i] + outrasPrevistas[i];
+        }
+        return total;
+    }
+
+    public double calcularTotalRealizado() {
+        double total = 0;
+        for (int i = 0; i < 4; i++) {
+            total += vendasRealizadas[i] + servicosRealizados[i] + outrasRealizadas[i];
+        }
+        return total;
+    }
+
+    public double calcularTotalMes(int mes) {
+        return vendasRealizadas[mes] + servicosRealizados[mes] + outrasRealizadas[mes];
+    }
+
+    public double calcularDiferenca(int mes, double totalSaidas) {
+        double totalRealizado = calcularTotalMes(mes);
+        return totalRealizado - totalSaidas;
+    }
+}

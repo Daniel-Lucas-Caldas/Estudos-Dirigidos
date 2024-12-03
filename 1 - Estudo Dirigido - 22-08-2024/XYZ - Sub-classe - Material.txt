@@ -1,0 +1,33 @@
+package xyz;
+
+
+public class Material {
+
+		    private final String nome;
+
+	    private final String classificacao;
+
+
+	    public Material(String nome, String classificacao) {
+
+	        this.nome = nome;
+
+	        this.classificacao = classificacao;
+
+	    }
+
+
+	    public String getNome() {
+
+	        return nome;
+
+	    }
+
+
+	    public String getClassificacao() {
+
+	        return classificacao;
+
+	    }
+
+	}

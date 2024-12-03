@@ -1,0 +1,21 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Conteúdo com Input</title>
+</head>
+<body>
+    <input type="text" id="inputTexto" placeholder="Digite algo">
+    <button onclick="alterarConteudo()">Alterar</button>
+    <p id="conteudo"></p>
+
+    <script>
+        function alterarConteudo() {
+            let texto = document.getElementById("inputTexto").value;
+            document.getElementById("conteudo").innerHTML = texto;
+        }
+    </script>
+</body>
+</html>

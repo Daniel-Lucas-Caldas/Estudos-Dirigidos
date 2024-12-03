@@ -1,0 +1,18 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 10. Aplicar desconto de 15% em produtos com preço > R$ 100
+let produtos = { cadeira: 150, mesa: 200, caneca: 50 };
+
+// Exibir preços antes do desconto
+console.log("💰 Preços antes do desconto:", produtos);
+
+// Aplicar desconto
+for (let item in produtos) {
+    if (produtos[item] > 100) {
+        produtos[item] *= 0.85; // Aplica o desconto de 15%
+    }
+}
+
+// Exibir preços após o desconto
+console.log("💸 Preços após desconto:", produtos);

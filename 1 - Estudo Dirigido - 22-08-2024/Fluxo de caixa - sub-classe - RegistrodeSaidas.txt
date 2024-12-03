@@ -1,0 +1,89 @@
+package aplicacao;
+
+import java.util.Scanner;
+
+class RegistroDeSaidas {
+    private double[] fornecedores = new double[4];
+    private double[] aluguel = new double[4];
+    private double[] luz = new double[4];
+    private double[] agua = new double[4];
+    private double[] folhaPagamento = new double[4];
+    private double[] fgts = new double[4];
+    private double[] inss = new double[4];
+    private double[] socios = new double[4];
+
+    public void registrarSaidas(Scanner scanner) {
+        System.out.println("=== Registro de Saídas ===");
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Mês " + (i + 1) + ":");
+
+            System.out.print("* Gastos com Fornecedores: ");
+            fornecedores[i] = scanner.nextDouble();
+
+            System.out.print("* Gastos com Aluguel: ");
+            aluguel[i] = scanner.nextDouble();
+
+            System.out.print("* Gastos com Luz: ");
+            luz[i] = scanner.nextDouble();
+
+            System.out.print("* Gastos com Água: ");
+            agua[i] = scanner.nextDouble();
+
+            System.out.print("* Folha de Pagamento: ");
+            folhaPagamento[i] = scanner.nextDouble();
+
+            System.out.print("* Gastos com FGTS: ");
+            fgts[i] = scanner.nextDouble();
+
+            System.out.print("* Gastos com INSS: ");
+            inss[i] = scanner.nextDouble();
+
+            System.out.print("* Retirada dos Sócios: ");
+            socios[i] = scanner.nextDouble();
+            System.out.println();
+        }
+    }
+
+    public double calcularTotalSaidas(int mes) {
+        return fornecedores[mes] + aluguel[mes] + luz[mes] + agua[mes] +
+               folhaPagamento[mes] + fgts[mes] + inss[mes] + socios[mes];
+    }
+
+    public double calcularTotalSaidas() {
+        double total = 0;
+        for (int i = 0; i < 4; i++) {
+            total += calcularTotalSaidas(i);
+        }
+        return total;
+    }
+    
+    public void exibirRelatorioSaidas(RegistroDeEntradas entradas) {
+        double saldoAcumulado = 0;
+        
+        System.out.println("=== Relatório de Saídas ===");
+        
+        for (int i = 0; i < 4; i++) {
+            double totalSaidasMes = calcularTotalSaidas(i);
+            double totalRealizadoMes = entradas.calcularTotalMes(i);
+            double entradaMenosSaidas = totalRealizadoMes - totalSaidasMes;
+            saldoAcumulado += entradaMenosSaidas;
+            
+            System.out.println("Mês " + (i + 1) + ":");
+            System.out.println("Entrada Menos Saídas: " + entradaMenosSaidas);
+            System.out.println("Saldo Anterior: " + saldoAcumulado);
+            System.out.println("Saldo Acumulado: " + saldoAcumulado);
+            System.out.println();
+        }
+
+        double totalSaidas = calcularTotalSaidas();
+        double totalRealizado = entradas.calcularTotalRealizado();
+        double saldoTotal = totalRealizado - totalSaidas;
+
+        System.out.println("=== Saldo Total ===");
+        System.out.println("Total de Entradas: " + totalRealizado);
+        System.out.println("Total de Saídas: " + totalSaidas);
+        System.out.println("Saldo Total: " + saldoTotal);
+        System.out.println();
+    }
+}

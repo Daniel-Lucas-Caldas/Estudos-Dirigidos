@@ -1,0 +1,21 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 8. Calcular o total de itens na lista de compras
+let listaCompras = [
+    { produto: "arroz", quantidade: 2 },
+    { produto: "feijão", quantidade: 3 },
+    { produto: "macarrão", quantidade: 1 }
+];
+
+let totalItens = 0;
+
+// Exibir a lista de produtos e suas quantidades
+console.log("🛒 Lista de Compras:");
+for (let item of listaCompras) {
+    console.log(`- ${item.quantidade}x ${item.produto}`);
+    totalItens += item.quantidade; // Soma a quantidade total de itens
+}
+
+// Exibir o total de itens
+console.log("\n📦 Total de itens na lista de compras:", totalItens);

@@ -1,0 +1,17 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 2. Calcular a soma total dos salários
+let salarios = {
+    Ana: 3000, 
+    Bruno: 2500, 
+    Carla: 4000 
+};
+let totalSalarios = 0;
+
+for (let pessoa in salarios) {
+    console.log(`Salário de ${pessoa}: R$ ${salarios[pessoa]}`);
+    totalSalarios += salarios[pessoa];
+}
+
+console.log("Total dos salários: R$", totalSalarios);

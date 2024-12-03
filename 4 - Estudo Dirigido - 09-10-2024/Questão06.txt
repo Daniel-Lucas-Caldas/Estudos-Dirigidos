@@ -1,0 +1,24 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 6. Encontrar a maior e a menor nota
+let notas = { Ana: 7, Pedro: 5, Carla: 9, João: 6 };
+
+// Inicializar variáveis para armazenar a maior e a menor nota
+let maiorNota = -Infinity;
+let menorNota = Infinity;
+
+// Laço para percorrer as notas dos alunos
+for (let aluno in notas) {
+    if (notas[aluno] > maiorNota) {
+        maiorNota = notas[aluno];  // Atualiza a maior nota
+    }
+    if (notas[aluno] < menorNota) {
+        menorNota = notas[aluno];  // Atualiza a menor nota
+    }
+}
+
+// Exibir resultados
+console.log("📊 Resultados das Notas:");
+console.log("Maior nota:", maiorNota);
+console.log("Menor nota:", menorNota);

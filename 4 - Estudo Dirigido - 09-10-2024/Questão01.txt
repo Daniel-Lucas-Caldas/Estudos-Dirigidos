@@ -1,0 +1,13 @@
+// Turma 88433 - Senai Dendezeiros
+// Aluno: Daniel Lucas dos Santos Caldas
+
+// 1. Iterar sobre as propriedades de um objeto e exibi-las no console
+let objeto = {
+    Nome: "João",
+    Idade: 30,
+    Cidade: "São Paulo"
+};
+
+for (let propriedade in objeto) {
+    console.log(`${propriedade}: ${objeto[propriedade]}`);
+}

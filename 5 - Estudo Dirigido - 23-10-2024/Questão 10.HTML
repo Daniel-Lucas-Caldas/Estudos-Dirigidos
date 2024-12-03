@@ -1,0 +1,22 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Tamanho do Texto</title>
+</head>
+<body>
+    <p id="texto">Este texto vai mudar de tamanho!</p>
+    <button onclick="alterarTamanho(2)">Aumentar</button>
+    <button onclick="alterarTamanho(-2)">Diminuir</button>
+
+    <script>
+        function alterarTamanho(delta) {
+            let texto = document.getElementById("texto");
+            let tamanhoAtual = parseInt(window.getComputedStyle(texto).fontSize);
+            texto.style.fontSize = (tamanhoAtual + delta) + "px";
+        }
+    </script>
+</body>
+</html>

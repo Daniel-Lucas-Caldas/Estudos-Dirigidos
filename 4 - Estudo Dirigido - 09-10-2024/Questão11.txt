@@ -1,0 +1,17 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 11. Contar caracteres em cada string do array
+let palavras = ["maçã", "banana", "uva"];
+
+// Função para contar caracteres em cada palavra do array
+function contarCaracteresArray(arr) {
+    let resultado = {};
+    for (let palavra of arr) {
+        resultado[palavra] = palavra.length; // Conta os caracteres e armazena no objeto
+    }
+    return resultado;
+}
+
+// Chama a função e exibe a contagem de caracteres
+console.log("📏 Contagem de caracteres em cada palavra:", contarCaracteresArray(palavras));

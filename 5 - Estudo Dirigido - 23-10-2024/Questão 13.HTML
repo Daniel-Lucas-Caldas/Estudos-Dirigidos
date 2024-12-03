@@ -1,0 +1,22 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Limite de Caracteres</title>
+</head>
+<body>
+    <input type="text" id="campoTexto" maxlength="20" oninput="atualizarContador()">
+    <p id="contador">Caracteres restantes: 20</p>
+
+    <script>
+        function atualizarContador() {
+            let campo = document.getElementById("campoTexto");
+            let contador = document.getElementById("contador");
+            let restante = 20 - campo.value.length;
+            contador.innerHTML = "Caracteres restantes: " + restante;
+        }
+    </script>
+</body>
+</html>

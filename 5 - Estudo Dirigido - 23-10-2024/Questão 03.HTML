@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Conteúdo e Estilo</title>
+</head>
+<body>
+    <p id="par1" style="color: blue;">Parágrafo 1</p>
+    <p id="par2" style="color: red;">Parágrafo 2</p>
+    <button onclick="alterarConteudoEstilo()">Alterar</button>
+
+    <script>
+        function alterarConteudoEstilo() {
+            document.getElementById("par1").innerHTML = "Novo texto para o Parágrafo 1";
+            document.getElementById("par2").innerHTML = "Novo texto para o Parágrafo 2";
+            document.getElementById("par1").style.color = "green";
+            document.getElementById("par2").style.color = "purple";
+        }
+    </script>
+</body>
+</html>

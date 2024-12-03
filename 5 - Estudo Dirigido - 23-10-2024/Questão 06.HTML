@@ -1,0 +1,20 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mostrar/Ocultar Elementos</title>
+</head>
+<body>
+    <p id="texto">Este é um parágrafo que pode ser oculto.</p>
+    <button onclick="mostrarOcultar()">Mostrar/Ocultar</button>
+
+    <script>
+        function mostrarOcultar() {
+            let texto = document.getElementById("texto");
+            texto.style.display = texto.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

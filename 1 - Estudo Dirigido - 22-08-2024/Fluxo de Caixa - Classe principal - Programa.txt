@@ -1,0 +1,25 @@
+package aplicacao;
+
+import java.util.Scanner;
+
+public class Programa {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        RegistroDeEntradas entradas = new RegistroDeEntradas();
+        RegistroDeSaidas saidas = new RegistroDeSaidas();
+
+        // Registrar entradas previstas e realizadas
+        entradas.registrarEntradas("Previstas", scanner);
+        entradas.registrarEntradas("Realizadas", scanner);
+
+        // Registrar saídas
+        saidas.registrarSaidas(scanner);
+
+        // Exibir relatório de entradas realizadas
+        entradas.exibirRelatorioEntradasRealizadas();
+
+        // Exibir relatório de saídas
+        saidas.exibirRelatorioSaidas(entradas);
+    }
+}

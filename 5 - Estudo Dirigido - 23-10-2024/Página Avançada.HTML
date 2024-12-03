@@ -1,0 +1,114 @@
+<!--Turma 88433 de Desenvolvimento de Sistemas / Senai-Dendezeiros 
+Alunos: Daniel Lucas e Kauan Nascimento -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interativa com Tabela e Formulário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="email"], select {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página Avançada com Tabela Dinâmica e Formulário</h1>
+    <h2>Links Utéis</h2>
+    <p>Acesse o <a href="https://www.google.com">Google</a> ou o <a href="https://www.wikipedia.org">Wikipedia</a></p>
+
+    <h2>Formulário de Compra</h2>
+    <form id="compraForm">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" required><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" required><br>
+
+        <label for="produto">Selecione um Produto:</label><br>
+        <select id="produto" required>
+            <option value="" disabled selected>-- Selecione --</option>
+            <option value="Produto A">Produto A</option>
+            <option value="Produto B">Produto B</option>
+            <option value="Produto C">Produto C</option>
+        </select><br>
+
+        <button type="button" onclick="adicionarNaTabela()">Adicionar à Tabela</button>
+    </form>
+
+    <h2>Tabela de Compras</h2>
+    <table id="tabelaCompras">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Produto Selecionado</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Seleção de Produtos Adicionais</h2>
+    <form id="produtosAdicionais">
+        <input type="checkbox" id="produtoA" value="50" onchange="calcularTotal()"> Produto A (R$ 50,00)<br>
+        <input type="checkbox" id="produtoB" value="30" onchange="calcularTotal()"> Produto B (R$ 30,00)<br>
+        <input type="checkbox" id="produtoC" value="20" onchange="calcularTotal()"> Produto C (R$ 20,00)<br>
+    </form>
+
+    <h3>Total: R$ <span id="total">0,00</span></h3>
+
+    <script>
+        function adicionarNaTabela() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const produto = document.getElementById('produto').value;
+
+            if (nome && email && produto) {
+                const tabela = document.getElementById('tabelaCompras').getElementsByTagName('tbody')[0];
+                const novaLinha = tabela.insertRow();
+
+                const celulaNome = novaLinha.insertCell(0);
+                const celulaEmail = novaLinha.insertCell(1);
+                const celulaProduto = novaLinha.insertCell(2);
+
+                celulaNome.textContent = nome;
+                celulaEmail.textContent = email;
+                celulaProduto.textContent = produto;
+
+                // Limpar o formulário após adicionar
+                document.getElementById('compraForm').reset();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            const checkboxes = document.querySelectorAll('#produtosAdicionais input[type="checkbox"]:checked');
+            checkboxes.forEach((checkbox) => {
+                total += parseFloat(checkbox.value);
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2).replace('.', ',');
+        }
+    </script>
+
+</body>
+</html>

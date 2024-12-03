@@ -1,0 +1,21 @@
+// Turma 88433 - Senai Dendezeiros
+// Alunos: Daniel Lucas dos Santos Caldas
+
+// 9. Contar caracteres em uma string
+function contarCaracteres(str) {
+    let contagem = {};
+    for (let char of str) {
+        contagem[char] = (contagem[char] || 0) + 1; // Incrementa a contagem de cada caractere
+    }
+    return contagem;
+}
+
+// Testando a função
+const texto = "javascript";
+const resultado = contarCaracteres(texto);
+
+// Exibir a contagem de caracteres de forma formatada
+console.log(`🔠 Contagem de caracteres na string '${texto}':`);
+for (let char in resultado) {
+    console.log(`- '${char}': ${resultado[char]}`);
+}
